@@ -17,10 +17,18 @@ $dataFrame:=shoal.frame($collection)
 Then group by a chosen column and apply aggregate functions
 
 ```4d
-$result:=$dataFrame.groupBy("letter").agg($F.sum("value");$F.max("value").as("maxValue"))
+$result:=$dataFrame.groupBy("letter").agg($F.sum("value"); $F.max("value").as("maxValue"))
 ```
 
-with `$F` a function builder
+```json
+{
+ "A": {"value":5, "maxValue":4},
+ "B": {"value":7, "maxValue":5},
+ "C": {"value":9, "maxValue":6}
+}
+```
+
+with `$F` the functions builder that you can instanciate one time
 
 ```4d
 $F:=shoal.functions()
@@ -32,7 +40,7 @@ $F:=shoal.functions()
 - $F.sumDistinct
 - $F.col
 - $F.set
-- $F.avg
+- $F.avg (or $F.mean)  
 - $F.count
 - $F.countDistinct
 - $F.min
