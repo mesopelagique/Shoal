@@ -1,6 +1,6 @@
 //%attributes = {}
 
-$F:=cs:C1710.AggFunction.new()
+$F:=shoal.functions()
 
 $collection:=New collection:C1472(\
 New object:C1471("letter"; "A"; "value"; 1; "toCol"; 1; "toAvg"; 1); \
@@ -10,7 +10,7 @@ New object:C1471("letter"; "A"; "value"; 4; "toCol"; 4; "toAvg"; 4); \
 New object:C1471("letter"; "B"; "value"; 5; "toCol"; 5; "toAvg"; 5); \
 New object:C1471("letter"; "C"; "value"; 6; "toCol"; 6; "toAvg"; 6))
 
-$result:=cs:C1710.DataFrame.new($collection).groupBy("letter").agg(\
+$result:=shoal.frame($collection).groupBy("letter").agg(\
 $F.sum("value"); \
 $F.sumDistinct("value").as("sumDistinct"); \
 $F.col("toCol"); \
