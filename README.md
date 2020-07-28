@@ -17,7 +17,7 @@ $dataFrame:=shoal.frame($collection)
 Then group by a chosen column and apply aggregate functions
 
 ```4d
-$result:=dataFrame.groupBy("letter").agg($F.sum("value");$F.max("value").as("maxValue"))
+$result:=$dataFrame.groupBy("letter").agg($F.sum("value");$F.max("value").as("maxValue"))
 ```
 
 with `$F` a function builder
