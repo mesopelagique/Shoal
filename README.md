@@ -1,6 +1,6 @@
 # Shoal
 
-Group data by columns and make computation such as `sum`
+Group data by columns and make computation such as `sum`, `min`, `max`, `count`, etc....
 
 ## Usage
 
@@ -61,3 +61,5 @@ Use `as` to rename the column in result. Mandatory if you make multiple computat
 - support selection? (with or without using `toCollection`)
 - more functions (standard deviation and variance, skewness, kurtosis, ...)
 - multiple columns group by
+
+![logo](logo.png)
