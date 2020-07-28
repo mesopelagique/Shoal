@@ -4,7 +4,7 @@ Group data by columns and make computation such as `sum`
 
 ## Usage
 
-Create the data object from your collection of object
+Create the data frame object from your collection of object
 
 ```4d
 $collection:=New collection(\
@@ -50,7 +50,7 @@ $F:=shoal.functions()
 
 ## column name alias
 
-Use `as` to rename the result. Mandatory if you make multiple computations for the same column.
+Use `as` to rename the column in result. Mandatory if you make multiple computations for the same column.
 
 ```4d
  .agg($F.sum("value").as("SumOfValue)
@@ -58,6 +58,6 @@ Use `as` to rename the result. Mandatory if you make multiple computations for t
 
 ## TODO
 
-- support selection?
-- more functions (std, variance, skewness, kurtosis, ...)
+- support selection? (with or without using `toCollection`)
+- more functions (standard deviation and variance, skewness, kurtosis, ...)
 - multiple columns group by
