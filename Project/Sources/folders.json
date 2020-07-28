@@ -1,0 +1,30 @@
+﻿{
+	"(Default Classes)": {},
+	"(Default Forms)": {},
+	"(Default Project Methods)": {},
+	"(Default Tables)": {},
+	"AggFunction": {
+		"classes": [
+			"AggFunction",
+			"AvgFunction",
+			"ColDistinctFunction",
+			"ColFunction",
+			"CountDistinctFunction",
+			"CountFunction",
+			"FirstFunction",
+			"LastFunction",
+			"MaxFunction",
+			"MinFunction",
+			"SumDistinctFunction",
+			"SumFunction"
+		]
+	},
+	"trash": {
+		"groups": [
+			"(Default Classes)",
+			"(Default Forms)",
+			"(Default Project Methods)",
+			"(Default Tables)"
+		]
+	}
+}

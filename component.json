@@ -1,0 +1,15 @@
+{
+  "author" : "mesopelagique",
+  "dependencies" : [
+
+  ],
+  "description" : "Group data and make some computations",
+  "keywords" : [
+    "4d-component"
+  ],
+  "name" : "Shoal",
+  "repository" : {
+    "type" : "git",
+    "url" : "https:\/\/github.com\/mesopelagique\/Shoal.git"
+  }
+}
