@@ -59,7 +59,8 @@ Use `as` to rename the column in result. Mandatory if you make multiple computat
 ## TODO
 
 - support selection? (with or without using `toCollection`)
-- more functions (standard deviation and variance, skewness, kurtosis, ...)
+- more functions (standard deviation and variance, skewness, kurtosis, ...) = implement it or request to be implemented by 4D (with more efficiency)
 - multiple columns group by
+- result into a collection instead of object
 
 ![logo](logo.png)
