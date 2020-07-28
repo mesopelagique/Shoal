@@ -1,7 +1,7 @@
 # Shoal
 
-Group data by columns and make computation such as `sum`, `min`, `max`, `count`, etc....
-
+Split your data into separate groups to perform computations such as `sum`, `min`, `max`, `count`, etc.... for better analysis.
+ 
 ## Usage
 
 Create the data frame object from your collection of object
