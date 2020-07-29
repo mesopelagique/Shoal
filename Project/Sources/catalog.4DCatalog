@@ -1,7 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
-<base name="GroupBy" uuid="21719B9F2E074EA09176780AD41CC4B9" collation_locale="en">
+<base name="Shoal" uuid="21719B9F2E074EA09176780AD41CC4B9" collation_locale="en">
 	<schema name="DEFAULT_SCHEMA"/>
+	<table name="Test" uuid="2F264735D06E451AABC25B45CBBF7D37" id="1">
+		<field name="ID" uuid="604FFF78630345D18C2751BB16AE2A56" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="letter" uuid="C1EAA8FAA12B429E8B724A9114A697C4" type="10" limiting_length="255" never_null="true" id="2"/>
+		<field name="value" uuid="E49C8EB605C249D2914A251879D1C435" type="5" never_null="true" id="3"/>
+		<field name="toCol" uuid="BF3FC8D6CA7F4C42A8AE3A49D9A9ED07" type="4" never_null="true" id="4"/>
+		<field name="toAvg" uuid="69FE15CC34504050AAA00A7C882D1872" type="5" never_null="true" id="5"/>
+		<field name="toCount" uuid="6249D559790C4545ADF2A80BC199797C" type="5" id="6"/>
+		<primary_key field_name="ID" field_uuid="604FFF78630345D18C2751BB16AE2A56"/>
+		<table_extra>
+			<editor_table_info displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="40" top="40" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<index kind="regular" unique_keys="true" uuid="4F0DB5D6E36B4D91B32F43F10ED9EFC6" type="7">
+		<field_ref uuid="604FFF78630345D18C2751BB16AE2A56" name="ID">
+			<table_ref uuid="2F264735D06E451AABC25B45CBBF7D37" name="Test"/>
+		</field_ref>
+	</index>
 	<base_extra>
 		<journal_file journal_file_enabled="true"/>
 	</base_extra>

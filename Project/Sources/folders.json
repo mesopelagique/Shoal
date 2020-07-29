@@ -15,5 +15,14 @@
 			"SumFunction"
 		]
 	},
+	"test": {
+		"tables": [
+			"Test"
+		],
+		"methods": [
+			"test_col",
+			"test_sel"
+		]
+	},
 	"trash": {}
 }

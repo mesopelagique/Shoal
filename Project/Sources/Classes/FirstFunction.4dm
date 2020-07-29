@@ -1,10 +1,15 @@
 Class extends AggFunction
 
 Function call
-	C_COLLECTION:C1488($1)
+	C_VARIANT:C1683($1)  // col or sel
 	C_VARIANT:C1683($0)
-	If ($1.length>0)
-		$0:=$1[0][This:C1470.field]
+	
+	If (Value type:C1509($1)=Is collection:K8:32)
+		If ($1.length>0)
+			$0:=$1[0][This:C1470.field]
+		Else 
+			$0:=Null:C1517
+		End if 
 	Else 
-		$0:=Null:C1517
+		$0:=$1.first()[This:C1470.field]
 	End if 

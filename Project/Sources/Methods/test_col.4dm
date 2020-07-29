@@ -1,5 +1,6 @@
 //%attributes = {}
-
+var $collection : Collection
+var $F; $result : Object
 $F:=shoal.functions()
 
 $collection:=New collection:C1472(\
@@ -25,6 +26,7 @@ $F.last("toCol").as("lastToCol"))
 
 ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
 
+var $key : Text
 For each ($key; $result)
 	
 	ASSERT:C1129(OB Keys:C1719($result[$key]).length=11; "Invalid number of computation for group "+$key)
