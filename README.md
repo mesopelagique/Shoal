@@ -20,7 +20,7 @@ New object("letter"; "A"; "value"; 4); New object("letter"; "B"; "value"; 5); Ne
 $dataFrame:=shoal.frame($collection)
 ```
 
-Then group by choosing a column and apply aggregate functions:
+Then group by choosing a column and apply aggregate functions on "fields":
 
 ```4d
 $result:=$dataFrame.groupBy("letter").agg($F.sum("value"); $F.max("value").as("maxValue"))
@@ -42,19 +42,21 @@ $F:=shoal.functions()
 
 ## List of functions
 
-- $F.sum: the sum
-- $F.sumDistinct: the sum of distinct element
-- $F.min: the minimum
-- $F.max: the maximum
-- $F.avg (or $F.mean): the average
-
-- $F.first: the first element
-- $F.last: the last element
-
-- $F.count: the number of not NULL element
-- $F.countDistinct: the number of distinct and not NULL element
-- $F.col: all values
-- $F.set: distinct values
+|Name|Description|
+|-|-|
+|$F.sum| the sum|
+|$F.sumDistinct| the sum of distinct element|
+|$F.min| the minimum|
+|$F.max| the maximum|
+|$F.avg (or $F.mean)| the average|
+|||
+|$F.first| the first element|
+|$F.last| the last element|
+|||
+|$F.count| the number of not NULL elements|
+|$F.countDistinct| the number of distinct and not NULL elements|
+|$F.col| all values|
+|$F.set| distinct values|
 
 ## column name alias
 
