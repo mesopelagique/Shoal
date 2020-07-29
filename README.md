@@ -1,4 +1,10 @@
 # Shoal
+[![language][code-shield]][code-url]
+[![language-top][code-top]][code-url]
+![code-size][code-size]
+[![release][release-shield]][release-url]
+[![license][license-shield]][license-url]
+[![discord][discord-shield]][discord-url]
 
 Split your data into separate groups to perform computations such as `sum`, `min`, `max`, `count`, etc.... for better analysis.
 
@@ -77,3 +83,20 @@ kaluza install mesopelagique/Shoal
 - [ ] result into a collection instead of object (ie. have different way to output grouped data)
 
 ![logo](logo.png)
+
+## Other components
+
+[<img src="https://mesopelagique.github.io/quatred.png" alt="mesopelagique"/>](https://mesopelagique.github.io/)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[code-shield]: https://img.shields.io/static/v1?label=language&message=4d&color=blue
+[code-top]: https://img.shields.io/github/languages/top/mesopelagique/Shoal.svg
+[code-size]: https://img.shields.io/github/languages/code-size/mesopelagique/Shoal.svg
+[code-url]: https://developer.4d.com/
+[release-shield]: https://img.shields.io/github/v/release/mesopelagique/Shoal
+[release-url]: https://github.com/mesopelagique/Shoal/releases/latest
+[license-shield]: https://img.shields.io/github/license/mesopelagique/Shoal
+[license-url]: LICENSE.md
+[discord-shield]: https://img.shields.io/badge/chat-discord-7289DA?logo=discord&style=flat
+[discord-url]: https://discord.gg/dVTqZHr
