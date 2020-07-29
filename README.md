@@ -20,7 +20,7 @@ New object("letter"; "A"; "value"; 4); New object("letter"; "B"; "value"; 5); Ne
 $dataFrame:=shoal.frame($collection)
 ```
 
-Then group by choosing a column and apply aggregate functions on "fields":
+Then group by choosing a column and apply aggregate functions on columns/fields:
 
 ```4d
 $result:=$dataFrame.groupBy("letter").agg($F.sum("value"); $F.max("value").as("maxValue"))
@@ -60,11 +60,13 @@ $F:=shoal.functions()
 
 ## column name alias
 
-Use `as` to rename the column in result. Mandatory if you make multiple computations for the same column.
+Use `as` to rename the column in final result. 
 
 ```4d
- .agg($F.sum("value").as("SumOfValue)
+ .agg($F.sum("value").as("SumOfValue")
 ```
+
+⚠️ Mandatory if you make multiple computations for the same column.
 
 ## Install
 
