@@ -10,5 +10,8 @@ Function call
 			$0:=Null:C1517
 		End if 
 	Else 
-		$0:=$1.last()[This:C1470.field]
+		$0:=$1.last()
+		If ($0#Null:C1517)
+			$0:=$0[This:C1470.field]
+		End if 
 	End if 
