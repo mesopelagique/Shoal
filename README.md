@@ -23,7 +23,7 @@ $dataFrame:=shoal.frame($collection)
 Then group by choosing a column and apply aggregate functions on columns/fields:
 
 ```4d
-$result:=$dataFrame.groupBy("letter").agg($F.sum("value"); $F.max("value").as("maxValue"))
+$result:=$dataFrame.groupBy("letter").agg(ƒ.sum("value"); ƒ.max("value").as("maxValue"))
 ```
 
 ```json
@@ -34,36 +34,36 @@ $result:=$dataFrame.groupBy("letter").agg($F.sum("value"); $F.max("value").as("m
 }
 ```
 
-with `$F` the functions builder that you can instanciate one time.
+with `ƒ` the functions builder that you can instanciate one time.
 
 ```4d
-$F:=shoal.functions()
+ƒ:=shoal.functions()
 ```
 
 ## List of functions
 
 |Name|Description|
 |-|-|
-|$F.sum| the sum|
-|$F.sumDistinct| the sum of distinct element|
-|$F.min| the minimum|
-|$F.max| the maximum|
-|$F.avg (or $F.mean)| the average|
+|ƒ.sum| the sum|
+|ƒ.sumDistinct| the sum of distinct element|
+|ƒ.min| the minimum|
+|ƒ.max| the maximum|
+|ƒ.avg (or $F.mean)| the average|
 |||
-|$F.first| the first element|
-|$F.last| the last element|
+|ƒ.first| the first element|
+|ƒ.last| the last element|
 |||
-|$F.count| the number of not NULL elements|
-|$F.countDistinct| the number of distinct and not NULL elements|
-|$F.col| all values|
-|$F.set| distinct values|
+|ƒ.count| the number of not NULL elements|
+|ƒ.countDistinct| the number of distinct and not NULL elements|
+|ƒ.col| all values|
+|ƒ.set| distinct values|
 
 ## column name alias
 
 Use `as` to rename the column in final result. 
 
 ```4d
- .agg($F.sum("value").as("SumOfValue")
+ .agg(ƒ.sum("value").as("SumOfValue")
 ```
 
 ⚠️ Mandatory if you make multiple computations for the same column.
