@@ -48,7 +48,7 @@ with `ƒ` the functions builder that you can instanciate one time.
 |ƒ.sumDistinct| the sum of distinct element|
 |ƒ.min| the minimum|
 |ƒ.max| the maximum|
-|ƒ.avg (or $F.mean)| the average|
+|ƒ.avg (or ƒ.mean)| the average|
 |||
 |ƒ.first| the first element|
 |ƒ.last| the last element|
