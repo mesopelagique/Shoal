@@ -1,7 +1,5 @@
 
 Class extends AggFunction
 
-Function call
-	C_VARIANT:C1683($1)  // col or sel
-	C_VARIANT:C1683($0)
-	$0:=$1.count(This:C1470.field)
+Function call($colOrSel : Variant)->$result : Variant
+	$result:=$colOrSel.count(This:C1470.field)

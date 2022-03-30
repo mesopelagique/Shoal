@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
 <base name="Shoal" uuid="21719B9F2E074EA09176780AD41CC4B9" collation_locale="en">
 	<schema name="DEFAULT_SCHEMA"/>
@@ -22,7 +22,7 @@
 			<table_ref uuid="2F264735D06E451AABC25B45CBBF7D37" name="Test"/>
 		</field_ref>
 	</index>
-	<base_extra>
+	<base_extra __stringCompHash="icu:68.1.0" __keywordBuildingHash="icu:68.1.0">
 		<journal_file journal_file_enabled="true"/>
 	</base_extra>
 </base>
