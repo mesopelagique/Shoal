@@ -66,9 +66,41 @@ Use `as` to rename the column in final result.
  .agg(ƒ.sum("value").as("SumOfValue")
 ```
 
-⚠️ Mandatory if you make multiple computations for the same column.
+⚠️ Mandatory if you make multiple computations for the same column (because column name is used as default)
+
+## compute on only one column
+
+It it exists some shortcut to apply function on only one column without `.agg` 
+
+```4d
+$result:=$dataFrame.groupBy("letter").sum("value")
+```
+
+## Get info on data frame
+
+Is it empty?
+
+```4d
+$dataFrame.isEmpty
+```
+
+Get the number of `cols` and `rows` as object
+
+```4d
+$shape:=$dataFrame.shape 
+```
+
+Return a new dataframe with some stats on each columns
+
+```4d
+$summary:=$dataFrame.summary()
+```
 
 ## Install
+
+### Manually
+
+Download database and put it in your Components folder or copy all code
 
 ### With [kaluza-cli](https://mesopelagique.github.io/kaluza-cli/) on macOS
 
