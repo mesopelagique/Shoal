@@ -1,11 +1,11 @@
-
-
-Class constructor($data : Variant; $by : Collection)
+Class constructor($data : Variant; $by : Collection; $flatten : Boolean)
 	This:C1470.data:=$data
 	This:C1470.by:=$by
+	This:C1470.isFlat:=Bool:C1537($flatten)
 	
-Function split($now : Boolean)->$this : Object
-	This:C1470.splitKeys:=This:C1470.data.distinct(This:C1470.by[0])  // for the moment accept only one TODO accept create multigroup
+	// MARK: - private
+Function _split($now : Boolean)->$this : Object
+	This:C1470.splitKeys:=This:C1470.data.distinct(This:C1470.by[0])  // TODO: for the moment accept only one TODO accept create multigroup
 	If (Count parameters:C259>0)  // need sort order before! or in parameters
 		If ($now)
 			This:C1470.splitValues:=New object:C1471()
@@ -22,20 +22,37 @@ Function split($now : Boolean)->$this : Object
 	End if 
 	$this:=This:C1470
 	
+	// MARK: - setup 
+	
+	// Set an order for group, useful for `first` and `last`
 Function orderBy($sortOrder : Variant)->$this : Object
 	This:C1470.sortOrder:=$sortOrder
 	$this:=This:C1470
 	
+Function flatten()->$this : Object
+	This:C1470.isFlat:=True:C214
+	$this:=This:C1470
+	
+Function resultAsDataFrame()->$this : Object
+	$this:=This:C1470.flatten()
+	
+	// MARK: - aggregate 
+	
+	// Aggregate data using all `AggFunction` passed as parameters
+	// parameters $functions...   list of aggregate functions associated to columns
+	// return: a `GroupedResult` or a `DataFrame` if `flatten`(or `resultAsDataFrame`) called before
 Function agg()->$result : Object
-	$result:=New object:C1471()
 	C_OBJECT:C1216(${1})  // agg functions
+	
+	$result:=This:C1470.isFlat ? cs:C1710.DataFrame.new(New collection:C1472) : cs:C1710.GroupedResult.new()
 	
 	var $group : Variant
 	var $i : Integer
 	var $key : Text
+	var $row : Object
 	
 	If (This:C1470.splitKeys=Null:C1517)
-		This:C1470.split()
+		This:C1470._split()
 	End if 
 	
 	For each ($key; This:C1470.splitKeys)
@@ -51,51 +68,59 @@ Function agg()->$result : Object
 		End if 
 		
 		// combine the computation
-		$result[String:C10($key)]:=New object:C1471()
+		If (This:C1470.isFlat)
+			$row:=New object:C1471(This:C1470.by[0]; $key)
+			$result.data.push($row)
+		Else 
+			$row:=New object:C1471()
+			$result[String:C10($key)]:=$row
+		End if 
+		
 		For ($i; 1; Count parameters:C259)
-			$result[String:C10($key)][${$i}.asValue]:=${$i}.call($group)  // apply
+			$row[${$i}.asValue]:=${$i}.call($group)  // apply
 		End for 
 		
 	End for each 
 	
 	// MARK: some shortcut for one col
 	
-Function sum($col : Text; $newName : Text)->$result : Object
+/* sums function: will sum values of `$col` for each group */
+Function sums($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.SumFunction.new($col).as(Count parameters:C259>1 ? $newName : ("sum ("+$col+")")))
 	
-/* sumDistinct function: will sum distinct values */
-Function sumDistinct($col : Text; $newName : Text)->$result : Object
+/* sumsDistinct function: will sum distinct values of `$col` for each group */
+Function sumsDistinct($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.SumDistinctFunction.new($col).as(Count parameters:C259>1 ? $newName : ("sumDistinct ("+$col+")")))
 	
-/* avg function: will make an average of the values */
-Function avg($col : Text; $newName : Text)->$result : Object
+/* averages function: will make an average of the values of `$col` for each group */
+Function averages($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.AvgFunction.new($col).as(Count parameters:C259>1 ? $newName : ("avg ("+$col+")")))
 	
-/* mean function: will make an average of the values */
-Function mean($col : Text; $newName : Text)->$result : Object
+/* means function: will make an average of the values of `$col` for each group (same as averages) */
+Function means($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.AvgFunction.new($col).as(Count parameters:C259>1 ? $newName : ("mean ("+$col+")")))
 	
-/* count function: will count defined values */
-Function count($col : Text; $newName : Text)->$result : Object
+/* counts function: will count defined values of `$col` for each group */
+Function counts($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.CountFunction.new($col).as(Count parameters:C259>1 ? $newName : ("count ("+$col+")")))
 	
-/* countDistinct function: will count distinct defined values */
-Function countDistinct($col : Text; $newName : Text)->$result : Object
+/* countsDistinct function: will count distinct defined values of `$col` for each group */
+Function countsDistinct($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.CountDistinctFunction.new($col).as(Count parameters:C259>1 ? $newName : ("countDistinct ("+$col+")")))
 	
-/* min function: will find the minimum value */
-Function min($col : Text; $newName : Text)->$result : Object
+/* minimums function: will find the minimum value of `$col` for each group */
+Function minimums($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.MinFunction.new($col).as(Count parameters:C259>1 ? $newName : ("min ("+$col+")")))
 	
-/* max function: will find the maximum value */
-Function max($col : Text; $newName : Text)->$result : Object
+/* maximums function: will find the maximum value of `$col` for each group */
+Function maximums($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.MaxFunction.new($col).as(Count parameters:C259>1 ? $newName : ("max ("+$col+")")))
 	
-/* first function: return the first if any */
+/* first function: return the first ones if any of `$col` for each group */
 Function first($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.FirstFunction.new($col).as(Count parameters:C259>1 ? $newName : ("first ("+$col+")")))
 	
-/* last function: return the last if any */
+/* last function: return the last if any of `$col` for each group */
 Function last($col : Text; $newName : Text)->$result : Object
 	$result:=This:C1470.agg(cs:C1710.LastFunction.new($col).as(Count parameters:C259>1 ? $newName : ("last ("+$col+")")))
 	

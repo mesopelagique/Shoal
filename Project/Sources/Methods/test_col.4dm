@@ -49,37 +49,78 @@ For each ($key; $result)
 	
 End for each 
 
+$result:=$result.asDataFrame("letter")
+ASSERT:C1129($result.length=3; "Invalid number of group")
+
+var $row : Object
+For each ($row; $result.data)
+	
+	ASSERT:C1129(OB Keys:C1719($row).length=12; "Invalid number of computation for group "+$row["letter"])
+	
+End for each 
+
+// MARK: apply a group by but flatten
+
+$result:=$frame.groupBy("letter").flatten().agg(\
+$ƒ.sum("value"); \
+$ƒ.sumDistinct("value").as("sumDistinct"); \
+$ƒ.col("toCol"); \
+$ƒ.set("toCol").as("aSet"); \
+$ƒ.avg("toAvg"); \
+$ƒ.count("toCount"); \
+$ƒ.countDistinct("toCol").as("distinctCount"); \
+$ƒ.max("value").as("maxOfValue"); \
+$ƒ.min("toCol").as("minToCol"); \
+$ƒ.first("toCol").as("firstToCol"); \
+$ƒ.last("toCol").as("lastToCol"))
+
+ASSERT:C1129($result.length=3; "Invalid number of group")
+
+var $row : Object
+For each ($row; $result.data)
+	
+	ASSERT:C1129(OB Keys:C1719($row).length=12; "Invalid number of computation for group "+$row["letter"])
+	
+End for each 
+
 // MARK: test each functions one by one
 
-$result:=$frame.groupBy("letter").sum("value"; "sum")
+$result:=$frame.groupBy("letter").sums("value"; "sum")
 ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
 
 ASSERT:C1129($result["A"]["sum"]=(1+4))
 ASSERT:C1129($result["B"]["sum"]=(2+5))
 ASSERT:C1129($result["C"]["sum"]=(3+6))
 
-$result:=$frame.groupBy("letter").sumDistinct("value"; "sumDistinct")
+$result:=$frame.groupBy("letter").flatten().sums("value"; "sum")
+ASSERT:C1129($result.length=3; "Invalid number of group")
+
+ASSERT:C1129($result.query("letter = :1"; "A")[0]["sum"]=(1+4))
+ASSERT:C1129($result.query("letter = :1"; "B")[0]["sum"]=(2+5))
+ASSERT:C1129($result.query("letter = :1"; "C")[0]["sum"]=(3+6))
+
+$result:=$frame.groupBy("letter").sumsDistinct("value"; "sumDistinct")
 ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
 
 ASSERT:C1129($result["A"]["sumDistinct"]=(1+4))
 ASSERT:C1129($result["B"]["sumDistinct"]=(2+5))
 ASSERT:C1129($result["C"]["sumDistinct"]=(3+6))
 
-$result:=$frame.groupBy("letter").avg("value"; "avg")
+$result:=$frame.groupBy("letter").averages("value"; "avg")
 ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
 
 ASSERT:C1129($result["A"]["avg"]=((1+4)/2))
 ASSERT:C1129($result["B"]["avg"]=((2+5)/2))
 ASSERT:C1129($result["C"]["avg"]=((3+6)/2))
 
-$result:=$frame.groupBy("letter").min("value"; "min")
+$result:=$frame.groupBy("letter").minimums("value"; "min")
 ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
 
 ASSERT:C1129($result["A"]["min"]=1)
 ASSERT:C1129($result["B"]["min"]=2)
 ASSERT:C1129($result["C"]["min"]=3)
 
-$result:=$frame.groupBy("letter").max("value"; "max")
+$result:=$frame.groupBy("letter").maximums("value"; "max")
 ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
 
 ASSERT:C1129($result["A"]["max"]=4)
@@ -114,14 +155,14 @@ ASSERT:C1129($result["A"]["last"]=1)
 ASSERT:C1129($result["B"]["last"]=2)
 ASSERT:C1129($result["C"]["last"]=3)
 
-$result:=$frame.groupBy("letter").count("value"; "count")
+$result:=$frame.groupBy("letter").counts("value"; "count")
 ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
 
 ASSERT:C1129($result["A"]["count"]=2)
 ASSERT:C1129($result["B"]["count"]=2)
 ASSERT:C1129($result["C"]["count"]=2)
 
-$result:=$frame.groupBy("letter").countDistinct("value"; "countDistinct")
+$result:=$frame.groupBy("letter").countsDistinct("value"; "countDistinct")
 ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
 
 ASSERT:C1129($result["A"]["countDistinct"]=2)

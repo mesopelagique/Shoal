@@ -40,6 +40,26 @@ with `ƒ` the functions builder that you can instanciate one time.
 ƒ:=shoal.functions()
 ```
 
+### Flatten result ie. return a new data frame
+
+You could get result as new data frame by calling `flatten`
+
+```4d
+$result:=$dataFrame.groupBy("letter").flatten().agg(ƒ.sum("value"); ƒ.max("value").as("maxValue"))
+```
+
+Useful to preserve column name and value type used by `groupBy` operation and to apply new operations
+
+```json
+{
+    "data": [
+        { "letter": "A", "value":5, "maxValue":4},
+        { "letter": "B", "value":7, "maxValue":5},
+        { "letter": "C", "value":9, "maxValue":6}
+    ]
+}
+```
+
 ## List of functions
 
 |Name|Description|
@@ -70,11 +90,13 @@ Use `as` to rename the column in final result.
 
 ## compute on only one column
 
-It it exists some shortcut to apply function on only one column without `.agg` 
+It it exists some shortcut to apply function on only one column without using `.agg` 
 
 ```4d
-$result:=$dataFrame.groupBy("letter").sum("value")
+$result:=$dataFrame.groupBy("letter").sums("value")
 ```
+
+> sums, counts, minimums, maximums, etc...
 
 ## Get info on data frame
 
@@ -82,6 +104,12 @@ Is it empty?
 
 ```4d
 $dataFrame.isEmpty
+```
+
+Data length ie. row count ?
+
+```4d
+$length:=$dataFrame.length
 ```
 
 Get the number of `cols` and `rows` as object
@@ -100,7 +128,7 @@ $summary:=$dataFrame.summary()
 
 ### Manually
 
-Download database and put it in your Components folder or copy all code
+Download database and put it in your `Components` folder or copy all code
 
 ### With [kaluza-cli](https://mesopelagique.github.io/kaluza-cli/) on macOS
 
@@ -114,11 +142,13 @@ kaluza install mesopelagique/Shoal
 ## TODO
 
 - [X] support selection
+- [X] result into a collection (DataFrame) instead of object (ie. have different way to output grouped data)
 - [ ] more functions (standard deviation and variance, skewness, kurtosis, ..., first not null, last not null) = implement it or request to be implemented by 4D (with more efficiency)
 - [ ] multiple columns group by
-- [ ] result into a collection instead of object (ie. have different way to output grouped data)
+- [ ] limit `summary` to specific columns
+- [ ] concatenate columns and create new data frame
 
-![logo](logo.png)
+> ![logo](logo.png) Shoal of fish 
 
 ## Other components
 

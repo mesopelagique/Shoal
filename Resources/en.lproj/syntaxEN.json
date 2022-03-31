@@ -25,6 +25,644 @@
 		},
 		"_inheritedFrom_": "AggFunction"
 	},
+	"FirstFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
+	"SumDistinctFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
+	"MaxFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
+	"ColDistinctFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
+	"GroupBy": {
+		"new()": {
+			"Syntax": "**.new**(*data* : Variant; *by* : Collection; *flatten* : Boolean)",
+			"Params": [
+				[
+					"data",
+					"Variant",
+					"->"
+				],
+				[
+					"by",
+					"Collection",
+					"->"
+				],
+				[
+					"flatten",
+					"Boolean",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"first()": {
+			"Syntax": "**.first**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"maximums()": {
+			"Syntax": "**.maximums**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"last()": {
+			"Syntax": "**.last**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"flatten()": {
+			"Syntax": "**.flatten**()->this : Object",
+			"Params": [
+				[
+					"this",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"agg()": {
+			"Syntax": "**.agg**()->result : Object",
+			"Params": [
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"averages()": {
+			"Syntax": "**.averages**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"countsDistinct()": {
+			"Syntax": "**.countsDistinct**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"means()": {
+			"Syntax": "**.means**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"counts()": {
+			"Syntax": "**.counts**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"sums()": {
+			"Syntax": "**.sums**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"orderBy()": {
+			"Syntax": "**.orderBy**(*sortOrder* : Variant)->this : Object",
+			"Params": [
+				[
+					"sortOrder",
+					"Variant",
+					"->"
+				],
+				[
+					"this",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"resultAsDataFrame()": {
+			"Syntax": "**.resultAsDataFrame**()->this : Object",
+			"Params": [
+				[
+					"this",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"sumsDistinct()": {
+			"Syntax": "**.sumsDistinct**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"minimums()": {
+			"Syntax": "**.minimums**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		}
+	},
+	"AvgFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
+	"ColFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
+	"GroupedResult": {
+		"flatten()": {
+			"Syntax": "**.flatten**()->dataFrame : cs.Shoal.DataFrame",
+			"Params": [
+				[
+					"dataFrame",
+					"cs.Shoal.DataFrame",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"asDataFrame()": {
+			"Syntax": "**.asDataFrame**(*colName* : Text)->dataFrame : cs.Shoal.DataFrame",
+			"Params": [
+				[
+					"colName",
+					"Text",
+					"->"
+				],
+				[
+					"dataFrame",
+					"cs.Shoal.DataFrame",
+					"<-"
+				]
+			],
+			"Summary": ""
+		}
+	},
+	"MinFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
+	"DataFrame": {
+		"new()": {
+			"Syntax": "**.new**(*data* : Variant)",
+			"Params": [
+				[
+					"data",
+					"Variant",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"summary()": {
+			"Syntax": "**.summary**()->newDataFrame : cs.Shoal.DataFrame",
+			"Params": [
+				[
+					"newDataFrame",
+					"cs.Shoal.DataFrame",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"query()": {
+			"Syntax": "**.query**(*query* : Text; *value* : Variant)->rows : Collection",
+			"Params": [
+				[
+					"query",
+					"Text",
+					"->"
+				],
+				[
+					"value",
+					"Variant",
+					"->"
+				],
+				[
+					"rows",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get columNames()": {
+			"Syntax": "**.get columNames**()->columns : Collection",
+			"Params": [
+				[
+					"columns",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get shape()": {
+			"Syntax": "**.get shape**()->shape : Object",
+			"Params": [
+				[
+					"shape",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get isEmpty()": {
+			"Syntax": "**.get isEmpty**()->empty : Boolean",
+			"Params": [
+				[
+					"empty",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"orderBy()": {
+			"Syntax": "**.orderBy**(*sortOrder* : Variant)->this : Object",
+			"Params": [
+				[
+					"sortOrder",
+					"Variant",
+					"->"
+				],
+				[
+					"this",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"containsColumn()": {
+			"Syntax": "**.containsColumn**(*colName* : Text)->contains : Boolean",
+			"Params": [
+				[
+					"colName",
+					"Text",
+					"->"
+				],
+				[
+					"contains",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get length()": {
+			"Syntax": "**.get length**()->length : Integer",
+			"Params": [
+				[
+					"length",
+					"Integer",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"groupBy()": {
+			"Syntax": "**.groupBy**(*byCol* : Text)->result : Object",
+			"Params": [
+				[
+					"byCol",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		}
+	},
+	"CountDistinctFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
+	"LastFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
+	"SumFunction": {
+		"call()": {
+			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
+			"Params": [
+				[
+					"colOrSel",
+					"Variant",
+					"->"
+				],
+				[
+					"result",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "AggFunction"
+	},
 	"AggFunction": {
 		"new()": {
 			"Syntax": "**.new**(*field* : Text; *asValue* : Text)",
@@ -250,550 +888,5 @@
 			],
 			"Summary": ""
 		}
-	},
-	"AvgFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
-	},
-	"ColFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
-	},
-	"ColDistinctFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
-	},
-	"GroupBy": {
-		"new()": {
-			"Syntax": "**.new**(*data* : Variant; *by* : Collection)",
-			"Params": [
-				[
-					"data",
-					"Variant",
-					"->"
-				],
-				[
-					"by",
-					"Collection",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"first()": {
-			"Syntax": "**.first**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"count()": {
-			"Syntax": "**.count**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"sum()": {
-			"Syntax": "**.sum**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"mean()": {
-			"Syntax": "**.mean**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"orderBy()": {
-			"Syntax": "**.orderBy**(*sortOrder* : Variant)->this : Object",
-			"Params": [
-				[
-					"sortOrder",
-					"Variant",
-					"->"
-				],
-				[
-					"this",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"countDistinct()": {
-			"Syntax": "**.countDistinct**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"avg()": {
-			"Syntax": "**.avg**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"last()": {
-			"Syntax": "**.last**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"min()": {
-			"Syntax": "**.min**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"agg()": {
-			"Syntax": "**.agg**()->result : Object",
-			"Params": [
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"max()": {
-			"Syntax": "**.max**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"sumDistinct()": {
-			"Syntax": "**.sumDistinct**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"split()": {
-			"Syntax": "**.split**(*now* : Boolean)->this : Object",
-			"Params": [
-				[
-					"now",
-					"Boolean",
-					"->"
-				],
-				[
-					"this",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		}
-	},
-	"MaxFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
-	},
-	"FirstFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
-	},
-	"SumDistinctFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
-	},
-	"DataFrame": {
-		"new()": {
-			"Syntax": "**.new**(*data* : Variant)",
-			"Params": [
-				[
-					"data",
-					"Variant",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"summary()": {
-			"Syntax": "**.summary**()->newDataFrame : cs.Shoal.DataFrame",
-			"Params": [
-				[
-					"newDataFrame",
-					"cs.Shoal.DataFrame",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get shape()": {
-			"Syntax": "**.get shape**()->shape : Object",
-			"Params": [
-				[
-					"shape",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get columNames()": {
-			"Syntax": "**.get columNames**()->columns : Collection",
-			"Params": [
-				[
-					"columns",
-					"Collection",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get isEmpty()": {
-			"Syntax": "**.get isEmpty**()->empty : Boolean",
-			"Params": [
-				[
-					"empty",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"orderBy()": {
-			"Syntax": "**.orderBy**(*sortOrder* : Variant)->this : Object",
-			"Params": [
-				[
-					"sortOrder",
-					"Variant",
-					"->"
-				],
-				[
-					"this",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"groupBy()": {
-			"Syntax": "**.groupBy**()->result : Object",
-			"Params": [
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		}
-	},
-	"CountDistinctFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
-	},
-	"LastFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
-	},
-	"SumFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
-	},
-	"MinFunction": {
-		"call()": {
-			"Syntax": "**.call**(*colOrSel* : Variant)->result : Variant",
-			"Params": [
-				[
-					"colOrSel",
-					"Variant",
-					"->"
-				],
-				[
-					"result",
-					"Variant",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "AggFunction"
 	}
 }
