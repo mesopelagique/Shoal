@@ -103,11 +103,11 @@
 	},
 	"GroupBy": {
 		"new()": {
-			"Syntax": "**.new**(*data* : Variant; *by* : Collection; *flatten* : Boolean)",
+			"Syntax": "**.new**(*dataFrame* : cs.Shoal.DataFrame; *by* : Collection; *flatten* : Boolean)",
 			"Params": [
 				[
-					"data",
-					"Variant",
+					"dataFrame",
+					"cs.Shoal.DataFrame",
 					"->"
 				],
 				[
@@ -165,72 +165,8 @@
 			],
 			"Summary": ""
 		},
-		"last()": {
-			"Syntax": "**.last**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"flatten()": {
-			"Syntax": "**.flatten**()->this : Object",
-			"Params": [
-				[
-					"this",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"agg()": {
-			"Syntax": "**.agg**()->result : Object",
-			"Params": [
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"averages()": {
-			"Syntax": "**.averages**(*col* : Text; *newName* : Text)->result : Object",
-			"Params": [
-				[
-					"col",
-					"Text",
-					"->"
-				],
-				[
-					"newName",
-					"Text",
-					"->"
-				],
-				[
-					"result",
-					"Object",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"countsDistinct()": {
-			"Syntax": "**.countsDistinct**(*col* : Text; *newName* : Text)->result : Object",
+		"counts()": {
+			"Syntax": "**.counts**(*col* : Text; *newName* : Text)->result : Object",
 			"Params": [
 				[
 					"col",
@@ -271,8 +207,72 @@
 			],
 			"Summary": ""
 		},
-		"counts()": {
-			"Syntax": "**.counts**(*col* : Text; *newName* : Text)->result : Object",
+		"last()": {
+			"Syntax": "**.last**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"countsDistinct()": {
+			"Syntax": "**.countsDistinct**(*col* : Text; *newName* : Text)->result : Object",
+			"Params": [
+				[
+					"col",
+					"Text",
+					"->"
+				],
+				[
+					"newName",
+					"Text",
+					"->"
+				],
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"agg()": {
+			"Syntax": "**.agg**()->result : Object",
+			"Params": [
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"flatten()": {
+			"Syntax": "**.flatten**()->this : Object",
+			"Params": [
+				[
+					"this",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"averages()": {
+			"Syntax": "**.averages**(*col* : Text; *newName* : Text)->result : Object",
 			"Params": [
 				[
 					"col",
@@ -313,6 +313,28 @@
 			],
 			"Summary": ""
 		},
+		"get data()": {
+			"Syntax": "**.get data**()->data : Variant",
+			"Params": [
+				[
+					"data",
+					"Variant",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"resultAsDataFrame()": {
+			"Syntax": "**.resultAsDataFrame**()->this : Object",
+			"Params": [
+				[
+					"this",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"orderBy()": {
 			"Syntax": "**.orderBy**(*sortOrder* : Variant)->this : Object",
 			"Params": [
@@ -329,12 +351,12 @@
 			],
 			"Summary": ""
 		},
-		"resultAsDataFrame()": {
-			"Syntax": "**.resultAsDataFrame**()->this : Object",
+		"get columnNames()": {
+			"Syntax": "**.get columnNames**()->cols : Collection",
 			"Params": [
 				[
-					"this",
-					"Object",
+					"cols",
+					"Collection",
 					"<-"
 				]
 			],
@@ -513,8 +535,8 @@
 			],
 			"Summary": ""
 		},
-		"get columNames()": {
-			"Syntax": "**.get columNames**()->columns : Collection",
+		"get columnNames()": {
+			"Syntax": "**.get columnNames**()->columns : Collection",
 			"Params": [
 				[
 					"columns",

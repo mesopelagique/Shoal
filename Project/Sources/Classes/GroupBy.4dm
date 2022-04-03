@@ -1,7 +1,13 @@
-Class constructor($data : Variant; $by : Collection; $flatten : Boolean)
-	This:C1470.data:=$data
+Class constructor($dataFrame : cs:C1710.DataFrame; $by : Collection; $flatten : Boolean)
+	This:C1470.dataFrame:=$dataFrame
 	This:C1470.by:=$by
 	This:C1470.isFlat:=Bool:C1537($flatten)
+	
+Function get data()->$data : Variant
+	$data:=This:C1470.dataFrame.data
+	
+Function get columnNames()->$cols : Collection
+	$cols:=This:C1470.dataFrame.columnNames
 	
 	// MARK: - private
 Function _split($now : Boolean)->$this : Object
@@ -86,41 +92,81 @@ Function agg()->$result : Object
 	
 /* sums function: will sum values of `$col` for each group */
 Function sums($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.SumFunction.new($col).as(Count parameters:C259>1 ? $newName : ("sum ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.SumFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.SumFunction.new($col).as(Count parameters:C259>1 ? $newName : ("sum ("+$col+")")))
+	End if 
 	
 /* sumsDistinct function: will sum distinct values of `$col` for each group */
 Function sumsDistinct($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.SumDistinctFunction.new($col).as(Count parameters:C259>1 ? $newName : ("sumDistinct ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.SumDistinctFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.SumDistinctFunction.new($col).as(Count parameters:C259>1 ? $newName : ("sumDistinct ("+$col+")")))
+	End if 
 	
 /* averages function: will make an average of the values of `$col` for each group */
 Function averages($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.AvgFunction.new($col).as(Count parameters:C259>1 ? $newName : ("avg ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.AvgFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.AvgFunction.new($col).as(Count parameters:C259>1 ? $newName : ("avg ("+$col+")")))
+	End if 
 	
 /* means function: will make an average of the values of `$col` for each group (same as averages) */
 Function means($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.AvgFunction.new($col).as(Count parameters:C259>1 ? $newName : ("mean ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.AvgFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.AvgFunction.new($col).as(Count parameters:C259>1 ? $newName : ("mean ("+$col+")")))
+	End if 
 	
 /* counts function: will count defined values of `$col` for each group */
 Function counts($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.CountFunction.new($col).as(Count parameters:C259>1 ? $newName : ("count ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.CountFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.CountFunction.new($col).as(Count parameters:C259>1 ? $newName : ("count ("+$col+")")))
+	End if 
 	
 /* countsDistinct function: will count distinct defined values of `$col` for each group */
 Function countsDistinct($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.CountDistinctFunction.new($col).as(Count parameters:C259>1 ? $newName : ("countDistinct ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.CountDistinctFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.CountDistinctFunction.new($col).as(Count parameters:C259>1 ? $newName : ("countDistinct ("+$col+")")))
+	End if 
 	
 /* minimums function: will find the minimum value of `$col` for each group */
 Function minimums($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.MinFunction.new($col).as(Count parameters:C259>1 ? $newName : ("min ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.MinFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.MinFunction.new($col).as(Count parameters:C259>1 ? $newName : ("min ("+$col+")")))
+	End if 
 	
 /* maximums function: will find the maximum value of `$col` for each group */
 Function maximums($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.MaxFunction.new($col).as(Count parameters:C259>1 ? $newName : ("max ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.MaxFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.MaxFunction.new($col).as(Count parameters:C259>1 ? $newName : ("max ("+$col+")")))
+	End if 
 	
 /* first function: return the first ones if any of `$col` for each group */
 Function first($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.FirstFunction.new($col).as(Count parameters:C259>1 ? $newName : ("first ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.FirstFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.FirstFunction.new($col).as(Count parameters:C259>1 ? $newName : ("first ("+$col+")")))
+	End if 
 	
 /* last function: return the last if any of `$col` for each group */
 Function last($col : Text; $newName : Text)->$result : Object
-	$result:=This:C1470.agg(cs:C1710.LastFunction.new($col).as(Count parameters:C259>1 ? $newName : ("last ("+$col+")")))
+	If (Count parameters:C259=0)
+		$result:=This:C1470.agg.apply(This:C1470; This:C1470.columnNames.map("NewClass"; cs:C1710.LastFunction))
+	Else 
+		$result:=This:C1470.agg(cs:C1710.LastFunction.new($col).as(Count parameters:C259>1 ? $newName : ("last ("+$col+")")))
+	End if 
 	

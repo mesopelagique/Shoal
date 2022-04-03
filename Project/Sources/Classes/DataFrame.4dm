@@ -17,7 +17,7 @@ Function groupBy($byCol : Text)->$result : Object
 	Else 
 		$by:=New collection:C1472($byCol)
 	End if 
-	$result:=cs:C1710.GroupBy.new(This:C1470.data; $by)
+	$result:=cs:C1710.GroupBy.new(This:C1470; $by)
 	If (This:C1470.sortOrder#Null:C1517)
 		$result.orderBy(This:C1470.sortOrder)
 	End if 
@@ -41,16 +41,20 @@ Function get length()->$length : Integer
 	$length:=This:C1470.data.length
 	
 Function get shape()->$shape : Object
-	$shape:=New object:C1471("rows"; This:C1470.data.length; "cols"; This:C1470.columNames.length)
+	$shape:=New object:C1471("rows"; This:C1470.data.length; "cols"; This:C1470.columnNames.length)
 	
-Function get columNames()->$columns : Collection
+Function get columnNames()->$columns : Collection
 	Case of 
 		: (Value type:C1509(This:C1470.data)=Is collection:K8:32)
-			$columns:=New collection:C1472
-			var $datum : Object
-			For each ($datum; This:C1470.data)
-				$columns:=$columns.combine(OB Keys:C1719($datum)).distinct()  // OPTI: combine only new?
-			End for each 
+			If (This:C1470._columnNames#Null:C1517)  // as a cache or to force it, like csv header
+				$columns:=This:C1470._columnNames
+			Else 
+				$columns:=New collection:C1472
+				var $datum : Object
+				For each ($datum; This:C1470.data)
+					$columns:=$columns.combine(OB Keys:C1719($datum)).distinct()  // OPTI: combine only new?
+				End for each 
+			End if 
 		Else   // selection ?
 			$columns:=OB Keys:C1719(This:C1470.data.getDataClass())
 	End case 
@@ -85,7 +89,7 @@ Function summary()->$newDataFrame : cs:C1710.DataFrame
 	var $row : Object
 	var $onError : Text
 	$onError:=Method called on error:C704
-	For each ($column; This:C1470.columNames)
+	For each ($column; This:C1470.columnNames)
 		
 		$row:=New object:C1471("column"; $column)
 		

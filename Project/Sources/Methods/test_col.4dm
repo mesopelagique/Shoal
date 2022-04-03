@@ -113,6 +113,13 @@ ASSERT:C1129($result["A"]["avg"]=((1+4)/2))
 ASSERT:C1129($result["B"]["avg"]=((2+5)/2))
 ASSERT:C1129($result["C"]["avg"]=((3+6)/2))
 
+$result:=$frame.groupBy("letter").means()  // on all cols
+ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
+
+ASSERT:C1129($result["A"]["toAvg"]=((1+4)/2))
+ASSERT:C1129($result["B"]["toAvg"]=((2+5)/2))
+ASSERT:C1129($result["C"]["toAvg"]=((3+6)/2))
+
 $result:=$frame.groupBy("letter").minimums("value"; "min")
 ASSERT:C1129(OB Entries:C1720($result).length=3; "Invalid number of group")
 
